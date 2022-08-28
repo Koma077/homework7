@@ -32,7 +32,7 @@ public class Main {
         String osMessage = OS == 0 ? "IOS" : "Android";
 
         System.out.printf("Установите %s версию приложения для %s по ссылке", versionMessage, osMessage);
-        System.out.println();
+        System.out.println(" ");
     }
 
 
