@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,51 +9,36 @@ public class Main {
 
     }
 
-    public static int leapYear() {
-        return 2024;
+    private static boolean leapYear(int year) {
+        if ((year % 400 == 0) || ((year % 100 != 0 & (year % 4 == 0)))){
+            System.out.println(year + " - високосный год");
+        }else{
+            System.out.println(year + " - не високосный год");
+        }
+        return true;
     }
 
     public static void task1() {
-        int year = leapYear();
-        if (year % 4 == 0) {
-            System.out.println(year + " это високосный год");
-        } else if ((year % 4 == 0) && (year % 100 == 0)) {
-            System.out.println(year + (" это високосный год"));
-        } else {
-            System.out.println(year + " это не високосный год");
-        }
+        int year = 2024;
+        leapYear(year);
+
+
     }
 
-    public static int ClientOS(String name) {
-        if (name.equals("IOS")) {
-            return 0;
-        } else {
-            return 1;
-        }
+    public static void deviceClient(int OS, int deviceYear) {
+        int currentYear = 2015;
+
+        String versionMessage = deviceYear < currentYear ? "облегченную" : "";
+        String osMessage = OS == 0 ? "IOS" : "Android";
+
+        System.out.printf("Установите %s версию приложения для %s по ссылке", versionMessage, osMessage);
+        System.out.println();
     }
 
-    public static int deviceYear() {
-        return 2016;
-        }
 
 
     public static void task2() {
-            String osName = "IOS";
-            int clientOS = ClientOS(osName);
-            int clientDeviceYear = deviceYear();
-        if (clientOS == 0) {
-            if (clientDeviceYear > 2015) {
-                System.out.println("Приложение подходит для данной версии телефона IOS");
-            } else {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            }
-        } else {
-            if (clientDeviceYear > 2015) {
-                System.out.println("Приложение подходит для данной версии телефона Android");
-            } else {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            }
-        }
+        deviceClient(0, 2016);
     }
 
     public static int diliveryDistance(int deliveryDays) {
